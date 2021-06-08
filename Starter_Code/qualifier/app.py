@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Loan Qualifier Application.
 
 This is a command line application to match applicants with qualifying loans.
@@ -102,16 +101,16 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
     return bank_data_filtered
 
 
-def save_qualifying_loans(qualifying_loans):
+def save_qualifying_loans_csv(qualifying_loans):
     # Saves the qualifying loans to a CSV file.
     if not qualifying_loans:
         sys.exit("Sorry, no qualifying loans available.")
 
-    saveFile = questionary.confirm("Would you like to save the qualifying loans?").ask()
+    saveFile = questionary.confirm("Would you like to save your qualifying loans?").ask()
 
     if saveFile:
         csvpath = questionary.text(
-            "Please enter a filepath for the saved data"
+            "Please enter a filepath for the saved data: (example.csv)"
         ).ask()
         save_csv(Path(csvpath), qualifying_loans)
 
@@ -131,7 +130,7 @@ def run():
     )
 
     # Save qualifying loans
-    save_qualifying_loans(qualifying_loans)
+    save_qualifying_loans_csv(qualifying_loans)
 
 
 if __name__ == "__main__":
