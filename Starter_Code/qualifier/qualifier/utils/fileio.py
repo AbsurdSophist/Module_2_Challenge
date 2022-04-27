@@ -28,3 +28,14 @@ def load_csv(csvpath):
         for row in csvreader:
             data.append(row)
     return data
+
+def save_csv(csvpath, qualifying_loans):
+    with open(csvpath, "w") as csvfile:
+        csvwriter = csv.writer(csvfile, delimiter=",")
+
+    
+
+        # Read the CSV data
+        for row in qualifying_loans:
+            data.append(row)
+    return data
